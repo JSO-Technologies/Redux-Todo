@@ -1,7 +1,9 @@
 import React from 'react';
+import Test from './test';
 
-class Home extends React.Component {
+export class Home extends React.Component {
     render() {
+        new Test().sayHello();
         return (
             <div>
                 Hello {this.props.name}!
@@ -9,5 +11,3 @@ class Home extends React.Component {
         );
     }
 }
-
-export default Home;

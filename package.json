@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "dev": "webpack-dev-server --config webpack.dev.config.js --progress --colors --port 3000 --content-base build",
+    "build": "webpack --config webpack.prod.config.js --progress --profile --colors"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
     "react": "^0.13.3",
+    "react-hot-loader": "^1.2.8",
     "sass-loader": "^1.0.2",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",

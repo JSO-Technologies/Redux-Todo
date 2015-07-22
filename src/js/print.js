@@ -1,8 +1,8 @@
-class Test {
+class Print {
     constructor() {}
     sayHello() {
         console.log('hello');
     }
 }
 
-export default Test;
+export default new Print();

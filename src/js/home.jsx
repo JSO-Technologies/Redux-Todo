@@ -1,9 +1,9 @@
 import React from 'react';
-import Test from './test';
+import Print from './print';
 
-export class Home extends React.Component {
+export default class Home extends React.Component {
     render() {
-        new Test().sayHello();
+        Print.sayHello();
         return (
             <div>
                 Hello {this.props.name}!

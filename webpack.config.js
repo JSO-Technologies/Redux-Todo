@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var node_modules = path.resolve(__dirname, 'node_modules');
+var src = path.resolve(__dirname, 'src');
 var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
 
 var eslintLoaderConf = {
@@ -26,14 +27,14 @@ function configLoaders(config, options) {
     loaders.push(
         {
             test: /\.jsx$/,
-            exclude: /node_modules/,
-            loaders: options.hotComponents ? ['react-hot-loader', 'babel-loader?stage=1&optional=runtime'] : null,
+            include: /src/,
+            loaders: options.hotComponents ? ['react-hot-loader', 'babel-loader?stage=0&optional=runtime'] : null,
             loader:  options.hotComponents ? null : 'babel-loader?stage=1&optional=runtime'
         },
         {
             test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader?stage=1&optional=runtime'
+            include: /src/,
+            loader: 'babel-loader?stage=0&optional=runtime'
         },
         {
             test: /\.scss$/,

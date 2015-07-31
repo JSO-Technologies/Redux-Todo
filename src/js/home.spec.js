@@ -2,7 +2,7 @@ import React from 'react/addons';
 import Home from './home.jsx';
 import Print from './print';
 
-let TestUtils = React.addons.TestUtils;
+const TestUtils = React.addons.TestUtils;
 
 describe('Home', function () {
     let should;
@@ -30,5 +30,19 @@ describe('Home', function () {
 
         //then
         expect(sayHello).to.have.been.called;
+    });
+
+    it('should render (test without dom)', function () {
+        //given
+        const shallowRenderer = TestUtils.createRenderer();
+
+        //when
+        shallowRenderer.render(<Home name="Jimmy" />);
+        const component = shallowRenderer.getRenderOutput();
+
+        //then
+        expect(component.props.children[0]).to.equal('Hello ');
+        expect(component.props.children[1]).to.equal('Jimmy');
+        expect(component.props.children[2]).to.equal('!');
     });
 });

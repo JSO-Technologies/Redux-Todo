@@ -67,7 +67,7 @@ function configPlugins(config, options) {
 
 module.exports = function(options) {
     var config = {
-        entry: path.resolve(__dirname, 'src/js/app.js'),
+        entry: path.resolve(__dirname, 'src/js/index.jsx'),
         output: {
             path: path.resolve(__dirname, 'build'),
             filename: options.minify ? 'bundle.min.js' : 'bundle.js'

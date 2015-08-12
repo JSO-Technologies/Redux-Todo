@@ -11,7 +11,12 @@ export default class Footer extends React.Component {
             return text;
         }
 
-        return <a onClick={(e) => this.props.changeFilter(value)} >{text}</a>;
+        return (
+            <a onClick={(e) => this.props.changeFilter(value)}
+                  style={{cursor: 'pointer'}}>
+                {text}
+            </a>
+        );
     }
 
     render() {

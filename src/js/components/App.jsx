@@ -3,30 +3,29 @@ import AddTodo from './AddTodo.jsx';
 import TodoList from './TodoList.jsx';
 import Footer from './Footer.jsx';
 
-import Immutable from 'immutable';
+import addTodo from '../actions/action-add-todo';
+import completeTodo from '../actions/action-complete-todo.js';
+import changeFilter from '../actions/action-change-filter';
 
+import Immutable from 'immutable';
+import { connect } from 'react-redux';
+
+import StateSelector from '../selector/state-selector';
+
+@connect(StateSelector)
 export default class App extends React.Component {
     render() {
+        const { dispatch, state } = this.props;
+
         return (
             <div>
-                <AddTodo addTodo={text => console.log('add todo', text)}/>
+                <AddTodo addTodo={ text => dispatch(addTodo(text)) }/>
                 <TodoList
-                    todos={Immutable.List.of(
-                        Immutable.fromJS({
-                            id: 1,
-                            text: 'Use Redux',
-                            done: true
-                        }),
-                        Immutable.fromJS({
-                            id: 0,
-                            text: 'Learn to connect it to React',
-                            done: false
-                        })
-                    )}
-                    complete={id => console.log('todo clicked', id)}/>
+                    todos={ state.todos }
+                    complete={ id => dispatch(completeTodo(id)) }/>
                 <Footer
-                    filter='ALL'
-                    changeFilter={filter => console.log('filter change', filter)}/>
+                    filter={ state.filter }
+                    changeFilter={ filter => dispatch(changeFilter(filter)) }/>
             </div>
         );
     }

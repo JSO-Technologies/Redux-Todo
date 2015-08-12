@@ -4,7 +4,7 @@ const TODO_TEXT = 'todoText';
 
 export default class AddTodo extends React.Component {
 
-    propTypes: {
+    static propTypes = {
         addTodo: React.PropTypes.func.isRequired
     };
 

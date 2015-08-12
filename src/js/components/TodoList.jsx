@@ -2,8 +2,8 @@ import React from 'react';
 import Todo from './Todo.jsx';
 
 export default class TodoList extends React.Component {
-    propTypes: {
-        todos: React.PropTypes.array.isRequired,
+    static propTypes = {
+        todos: React.PropTypes.object.isRequired,
         complete: React.PropTypes.func.isRequired
     };
 

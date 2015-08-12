@@ -1,8 +1,9 @@
 import React from 'react';
+import * as FilterTypes from '../actions/types/filter-types';
 
 export default class Footer extends React.Component {
-    propTypes: {
-        filter: React.PropTypes.string.isRequired,
+    static propTypes = {
+        filter: React.PropTypes.oneOf([FilterTypes.ALL, FilterTypes.ACTIVE, FilterTypes.COMPLETED]).isRequired,
         changeFilter: React.PropTypes.func.isRequired
     };
 

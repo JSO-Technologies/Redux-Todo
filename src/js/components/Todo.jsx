@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default class Todo extends React.Component {
-    propTypes: {
+    static propTypes = {
         id: React.PropTypes.number.isRequired,
         text: React.PropTypes.string.isRequired,
-        done: React.PropTypes.boolean.isRequired,
+        done: React.PropTypes.bool.isRequired,
         complete: React.PropTypes.func.isRequired
     };
 
